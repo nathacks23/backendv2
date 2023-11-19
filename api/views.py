@@ -15,41 +15,6 @@ from django.conf import settings
 
 class UploadImageView(APIView):
     parser_classes = (MultiPartParser,)
-
-    # def post(self, request, *args, **kwargs):
-    #     uploaded_image = request.FILES.get('image')
-
-    #     # if uploaded_image:
-    #     #     # Process the image (you can replace this with your own logic)
-    #     #     # Here, we are just returning a success message
-    #     #     return Response({'message': 'Image uploaded successfully!'}, status=status.HTTP_200_OK)
-    #     # else:
-    #     #     return Response({'error': 'No image file provided.'}, status=status.HTTP_400_BAD_REQUEST)
-
-    #     # Load the pre-trained stroke predictor
-    #     try:
-    #         model = keras.models.load_model('stroke_recognition.h5')
-    #     except:
-    #         print("Error loading the model")
-
-    #     image = cv2.imread(uploaded_image)
-    #     # image = cv2.imread(f)
-    #     image = cv2.resize(image, (150, 150))
-
-    #     # Reshape and normalize the image
-    #     image = np.expand_dims(image, axis=0)
-    #     image = image.astype('float32') / 255.0
-
-    #     # Make the prediction
-    #     prediction = model.predict(image)
-
-    #     # Determine the class based on the prediction
-    #     if prediction[0][0] >= 0.5:
-    #         prediction_label = "Stroke"
-    #         return Response(1)
-    #     else:
-    #         prediction_label = "Not Stroke"
-    #         return Response(0)
     def post(self, request, *args, **kwargs):
         uploaded_image = request.FILES.get('image')
 
